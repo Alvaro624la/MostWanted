@@ -1,0 +1,117 @@
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+body{
+  font-size: 1em;
+  font-family: 'Montserrat', sans-serif;
+  background: url('./src/img/bg.jpg');
+  background-size: cover;
+  color: white;
+}
+.nav{
+  margin: 2em 1em;
+}
+.nav__form{
+  display: flex;
+  flex-direction: column;
+}
+.nav__form__label{
+  margin-bottom: .5em;
+}
+.nav__form__input{
+  width: auto;
+  height: 2em;
+  font-family: 'Montserrat', sans-serif;
+  margin-bottom: 1em;
+}
+.nav__sex{
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  flex-wrap: wrap;
+  text-align: center;
+}
+.nav__sex__female, 
+.nav__sex__male, 
+.nav__sex__other{
+  list-style: none;
+  width: 100px;
+  height: 30px;
+  background: #61714d;
+  background: linear-gradient(135deg, #4f4d71, rgba(143, 165, 174, 0.85));
+  border: 0px black solid;
+  margin: 10px 10px;
+  font-weight: 400;
+  border-radius: 5px;
+  box-shadow: 0 5px #8f8fae;
+  transition: 0.02s;
+  cursor: pointer;
+  font-size: 1.1em;
+  font-family: 'Montserrat', sans-serif;
+  padding-top: 0.19em;
+}
+.nav__sex__female:hover, 
+.nav__sex__male:hover, 
+.nav__sex__other:hover {
+  cursor: pointer;
+  filter: drop-shadow(0px 0px 20px #8f8fae);
+  background: linear-gradient(0deg, #4f4d71, rgba(143, 165, 174, 0.85));
+}
+.nav__sex__female:active, 
+.nav__sex__male:active, 
+.nav__sex__other:active {
+  transform: translateY(2px);
+  box-shadow: 0 3px #666;
+}
+.card{
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  width: 100%;
+}
+.card__div{
+  /*don't use padding*/
+  margin: 1em;
+  background-color: rgba(0, 0, 0, 0.35);
+  flex-basis: 20em; 
+  border-radius: 1em;
+}
+.card__nombre{
+  width: 90%;
+  text-align: center;
+  margin: 1em 1.5em .4em 1.5em;
+}
+.card__alias{
+  width: 90%;
+  margin: 0 1.5em 1em 1.5em;
+}
+.card__img-cont{
+  display: flex;
+  justify-content: center;
+  margin: 0 1.5em 1em 1.5em;
+}
+.card__img-cont__img{
+  width: 8em;
+}
+.card__description{
+  width: 90%;
+  margin: 0 1.5em 1em 1.5em;
+}
+.card__details{
+  /* border: 1px solid red; */
+  width: 90%;
+  margin: 0 1.5em 1em 1.5em;
+}
+.no-data{
+  text-align: center;
+  font-size: 2em;
+  color: rgb(255, 255, 255);
+  font-weight: 300;
+  font-style: italic;
+}
+.no-data-span{
+  color: rgb(219, 71, 71);
+  font-weight: 700;
+}

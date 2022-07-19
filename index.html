@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!--GOOGLE FONTS (hx): font-family: 'Montserrat', sans-serif;-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <!--CSS-->
+    <link href="styles.css" type="text/css" rel="stylesheet">
+
+    <title>FBI Most Wanted</title>
+</head>
+<body>
+    <nav id="nav" class="nav">
+        <form id="field-office" class="nav__form" method="post">
+            <label for="field-office" class="nav__form__label">Search by field office city name:</label>
+            <input id="inputFieldOffice"  class="nav__form__input" type="text" name="field-office" placeholder="City name of the field office (ex: Seattle)">
+        </form>
+        <form id="city" class="nav__form" method="post">
+            <label for="city" class="nav__form__label">Search by city of most wanted person:</label>
+            <input id="inputCity" class="nav__form__input" type="text" name="city" placeholder="City (ex: Florida)">
+        </form>
+        <ul id="nav__sex" class="nav__sex">
+            <li id="female" class="nav__sex__female">Female</li>
+            <li id="male" class="nav__sex__male">Male</li>
+            <li id="other" class="nav__sex__other">Other</li>
+        </ul>
+    </nav>
+    <main id="main" class="main">
+        <div id="card" class="card">
+        </div>
+        <p id="noDataP" class="no-data"></p>
+    </main>
+    <script src="app.js"></script>
+</body>
+</html>
