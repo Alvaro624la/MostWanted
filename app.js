@@ -250,6 +250,9 @@ getData().then(data => {
 //city input: 
     //arreglar nombres de "ciudad, pais".
     //separar por coma y eliminar pais?
+
 //no data messaje 
     //ERROR: como recorre todos los hijos, siempre va a haber divs que ejecuten éste 'else' o condicion 'if'(div.childNodes[0] == undefined)
     // p.innerHTML = `<span class="no-data-span">NO DATA for</span> ${inputCity.value}`;
+    
+//clickar a x card --> muestra toda la info de esa persona/objeto, en pantalla completa
