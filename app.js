@@ -1,3 +1,4 @@
+document.cookie = "SameSite=Strict; samesite=strict; Secure";
 //VARIABLES
 //DOM
 let main = document.getElementById('main');
@@ -61,7 +62,7 @@ getData().then(data => {
             let prop = iteraciones[0];
             //seleccionamos lo que serán los valores
             let val = iteraciones[1];
-            //el loop añadirá al objeto "obj" las propiedades y valores
+            //el loop añadirás al objeto "obj" las propiedades y valores
             FBIdataClean[prop] = val;
         };
         // A divertirse
@@ -84,14 +85,19 @@ getData().then(data => {
                 // for the DOM (creates div to add the content)
                 card.appendChild(div);
                 div.className = 'card__div';
-                
+
+                //eliminar undefined alias
+                if(FBIdataClean.aliases == undefined){
+                    FBIdataClean.aliases = '';
+                }
+
                 div.innerHTML = `
                     <h3 id="nombre" class="card__nombre">${FBIdataClean.title}</h3>
                     <h3 id="alias" class="card__alias">${FBIdataClean.aliases}</h3>
                     <div class="card__img-cont">
                         <img id="img" class="card__img-cont__img" src="${FBIdataClean.images[0].thumb/*original*/}" alt='${FBIdataClean.title} image'>
                     </div>
-                    <p id="description" class="card__description">${FBIdataClean.subjects}</p>
+                    <p id="subjects" class="card__subjects">${FBIdataClean.subjects}</p>
                     <p id="description" class="card__description">${FBIdataClean.description}</p>
                 `;
             };
@@ -111,13 +117,18 @@ getData().then(data => {
                 card.appendChild(div);
                 div.className = 'card__div';
 
+                //eliminar undefined alias
+                if(FBIdataClean.aliases == undefined){
+                    FBIdataClean.aliases = '';
+                }
+
                 div.innerHTML = `
                     <h3 id="nombre" class="card__nombre">${FBIdataClean.title}</h3>
                     <h3 id="alias" class="card__alias">${FBIdataClean.aliases}</h3>
                     <div class="card__img-cont">
                         <img id="img" class="card__img-cont__img" src="${FBIdataClean.images[0].thumb/*original*/}" alt='${FBIdataClean.title} image'>
                     </div>
-                    <p id="description" class="card__description">${FBIdataClean.subjects}</p>
+                    <p id="subjects" class="card__subjects">${FBIdataClean.subjects}</p>
                     <p id="description" class="card__description">${FBIdataClean.description}</p>
                 `;
             };
@@ -132,6 +143,11 @@ getData().then(data => {
                 div.parentNode.removeChild(div);
             };
 
+            //eliminar undefined alias
+            if(FBIdataClean.aliases == undefined){
+                FBIdataClean.aliases = '';
+            }
+            
             if(!FBIdataClean.sex){
                 // for the DOM (creates div to add the content)
                 card.appendChild(div);
@@ -142,7 +158,7 @@ getData().then(data => {
                     <div class="card__img-cont">
                         <img id="img" class="card__img-cont__img" src="${FBIdataClean.images[0].original}" alt='${FBIdataClean.title} image'>
                     </div>
-                    <p id="description" class="card__description">${FBIdataClean.subjects}</p>
+                    <p id="subjects" class="card__subjects">${FBIdataClean.subjects}</p>
                     <p id="description" class="card__description">${FBIdataClean.description}</p>
                 `;
             };
@@ -163,6 +179,11 @@ getData().then(data => {
             //limpiamos y normalizamos el texto del input
             let textLower = inputFieldOffice.value.trim().toLowerCase();
 
+            //eliminar undefined alias
+            if(FBIdataClean.aliases == undefined){
+                FBIdataClean.aliases = '';
+            }
+
             if(FBIdataClean.field_offices == textLower){
                 inputFieldOffice.value = '';
 
@@ -177,7 +198,7 @@ getData().then(data => {
                         <img id="img" class="card__img-cont__img" src="${FBIdataClean.images[0].original}" alt='${FBIdataClean.title} image'>
                     </div>
                     <h4 id="description" class="card__description">${FBIdataClean.description}</h4>
-                    <p id="description" class="card__description">${FBIdataClean.subjects}</p>
+                    <p id="subjects" class="card__subjects">${FBIdataClean.subjects}</p>
                 `;
             };
         });
@@ -199,8 +220,11 @@ getData().then(data => {
             //capitalizamos la primera letra
             let textUpper = textLower.charAt(0).toUpperCase() + textLower.slice(1);
 
-            ////////////////////////////////////arreglar nombres de "ciudad, pais".
-            ////////////////////////////////////separar por coma y eliminar pais?
+            //eliminar undefined alias
+            if(FBIdataClean.aliases == undefined){
+                FBIdataClean.aliases = '';
+            }
+
             if(FBIdataClean.place_of_birth == textUpper){
                 inputCity.value = '';
 
@@ -215,26 +239,17 @@ getData().then(data => {
                         <img id="img" class="card__img-cont__img" src="${FBIdataClean.images[0].original}" alt='${FBIdataClean.title} image'>
                     </div>
                     <h4 id="description" class="card__description">${FBIdataClean.description}</h4>
-                    <p id="description" class="card__description">${FBIdataClean.subjects}</p>
+                    <p id="subjects" class="card__subjects">${FBIdataClean.subjects}</p>
                 `;
             };
-
-             //////////////////////////////////como recorre todos los hijos, siempre va a haber divs que ejecuten éste 'else' o condicion 'if'(div.childNodes[0] == undefined)
-             
-            // console.log(div.parentNode);
-            // if(div.parentNode == null){
-            //     p.innerHTML = `<span class="no-data-span">NO DATA for</span> ${inputCity.value}`;
-            // };     
-               
-
-                //no data message
-                // p.style.display = 'block';
-                // p.innerHTML = `<span class="no-data-span">NO DATA for</span> ${inputCity.value}`;
-                // p.innerHTML = `NO DATA for ${inputCity.value}`;
-                // let p = document.createElement('p');
-                // p.className = 'no-data';
-                // main.appendChild(p);
-            // };
         });
     };
 });
+
+//PENDIENTE:
+//city input: 
+    //arreglar nombres de "ciudad, pais".
+    //separar por coma y eliminar pais?
+//no data messaje 
+    //ERROR: como recorre todos los hijos, siempre va a haber divs que ejecuten éste 'else' o condicion 'if'(div.childNodes[0] == undefined)
+    // p.innerHTML = `<span class="no-data-span">NO DATA for</span> ${inputCity.value}`;
